@@ -1,0 +1,3610 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="56" y="54" width="100" height="40" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Bus Arrival ]]></Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="60" y="846" width="100" height="40" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Bus Routes</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="94">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="60" y="1218" width="100" height="40" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Bus Stops</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="121">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="64" y="486" width="83" height="48" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Bus Services</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="107">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="990" y="1217" width="546" height="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>3. Data Display</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>3. Data Display</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="144">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="1147" y="1302" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields>
+                <Field field="URL" />
+                <Field field="2" />
+              </GroupFields>
+              <HeaderField field="3" />
+              <DataField field="JSON_ValueString" />
+              <Methods>
+                <Method method="Concat" />
+                <Separator>,</Separator>
+                <FieldSize value="2048" />
+              </Methods>
+              <RetainSpecChars value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="URL" size="2147483647" source="CrossTab:Group:Concat:" type="V_String" />
+                <Field description="TextToColumns: Parsed from JSON_Name" name="2" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="BusStopCode" size="2048" source="CrossTab:Header:3:BusStopCode:Concat:" type="V_WString" />
+                <Field name="Description" size="2048" source="CrossTab:Header:3:Description:Concat:" type="V_WString" />
+                <Field name="Latitude" size="2048" source="CrossTab:Header:3:Latitude:Concat:" type="V_WString" />
+                <Field name="Longitude" size="2048" source="CrossTab:Header:3:Longitude:Concat:" type="V_WString" />
+                <Field name="RoadName" size="2048" source="CrossTab:Header:3:RoadName:Concat:" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="145">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1291" y="1302" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="2" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>2 - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="146">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1423" y="1302" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="2" selected="False" />
+                <SelectField field="BusStopCode" selected="True" />
+                <SelectField field="RoadName" selected="True" />
+                <SelectField field="Description" selected="True" />
+                <SelectField field="Latitude" selected="True" />
+                <SelectField field="Longitude" selected="True" />
+                <SelectField field="_Null_" selected="False" />
+                <SelectField field="URL" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="192">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1135" y="1362" width="120" height="52" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Group by Index &amp; URL 
+Showcase by Feature</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="193">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1279" y="1266" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Re sort by Index Ascending</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="194">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1411" y="1362" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Unselect URL, Index</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="234">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1015" y="1314" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>NotContains</Operator>
+                <Field>2</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2025-02-01 21:22:05</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>metadata</Operand>
+                  <StartDate>2025-02-01 21:22:05</StartDate>
+                  <EndDate>2025-02-01 21:22:05</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!Contains([2],"metadata")</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="196">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1890" y="1013" width="591" height="325" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Join Bus Routes &amp; Bus Stops</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Join Bus Routes &amp; Bus Stops</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="195">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1927" y="1146" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="BusStopCode" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="BusStopCode" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_BusStopCode" selected="True" rename="Right_BusStopCode" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="198">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1915" y="1206" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Left &amp; Right Join on Bus Stop Code</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="204">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="2143" y="1146" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="ServiceNo" order="Ascending" />
+                <Field field="StopSequence" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>ServiceNo - Ascending
+StopSequence - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="205">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2059" y="1146" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ServiceNo" selected="True" />
+                <SelectField field="BusStopCode" selected="True" />
+                <SelectField field="Direction" selected="True" />
+                <SelectField field="Distance" selected="True" />
+                <SelectField field="RoadName" selected="True" />
+                <SelectField field="Description" selected="True" />
+                <SelectField field="Latitude" selected="True" />
+                <SelectField field="Longitude" selected="True" />
+                <SelectField field="Operator" selected="False" />
+                <SelectField field="StopSequence" selected="True" />
+                <SelectField field="WD_FirstBus" selected="True" />
+                <SelectField field="WD_LastBus" selected="True" />
+                <SelectField field="SAT_FirstBus" selected="True" />
+                <SelectField field="SAT_LastBus" selected="True" />
+                <SelectField field="SUN_FirstBus" selected="True" />
+                <SelectField field="SUN_LastBus" selected="True" />
+                <SelectField field="Right_BusStopCode" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="219">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2359" y="1062" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="25">C:\Users\leong\OneDrive\Documents\Ngee Ann Poly\Sem 2.2\DDP\ass 2\Bus Route 2.xlsx|||Sheet1</File>
+              <Passwords />
+              <Disable>False</Disable>
+              <FormatSpecificOptions>
+                <PreserveFormat>False</PreserveFormat>
+                <UNCLocal>False</UNCLocal>
+                <SkipFieldNames>False</SkipFieldNames>
+                <SuppressBlankFile>False</SuppressBlankFile>
+                <OutputOption>Overwrite</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Bus Route 2.xlsx
+Query=Sheet1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="227">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="2359" y="1254" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\leong\AppData\Local\Temp\Alteryx\Engine_15140_c9ca170c00df48c7a09f37ea1aa6d2bd_\Engine_15140_39b316eb7f354c459d8e359ba949087b~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="123">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="307" y="497" width="546" height="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>2. API Calls</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>2. API Calls</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="124">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="332" y="594" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>URL</URLField>
+              <OutputMode>String</OutputMode>
+              <CodePage>65001</CodePage>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues>
+                  <Item name="AccountKey" value="mfUGSSHrRwewXK6XHXwG/w==" />
+                  <Item name="Date" value="202412" />
+                </NameValues>
+                <Fields orderChanged="False">
+                  <Field name="URL" />
+                  <Field name="User-Agent" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>GET</HTTPAction>
+                <QueryStringBodyMode>Compose</QueryStringBodyMode>
+                <ComposeNameValues />
+                <ComposeFields orderChanged="False">
+                  <Field name="URL" selected="False" />
+                  <Field name="User-Agent" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </ComposeFields>
+              </Payload>
+              <numConnections>1</numConnections>
+              <Timeout>600</Timeout>
+              <EnableRPM value="False" />
+              <DcmAdvancedAuth value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+        <Node ToolID="125">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+            <Position x="439" y="594" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <JSON_Field>DownloadData</JSON_Field>
+              <IncludeInOutput value="False" />
+              <SingleField value="False" />
+              <Mode>SingleField</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+        </Node>
+        <Node ToolID="126">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="535" y="594" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="User-Agent" selected="False" />
+                <SelectField field="DownloadHeaders" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="127">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="643" y="594" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>JSON_Name</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>
+              </RootName>
+              <Delimeters value="." />
+              <NumFields value="3" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="130">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="752" y="594" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="JSON_Name" selected="False" />
+                <SelectField field="1" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="167">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="356" y="654" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Download API</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="169">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="500" y="546" width="118" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Unselect Download Headers, User-Agent</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="170">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="608" y="654" width="120" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Convert JSON_Name into rows</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="171">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="728" y="546" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Unselect JSON_Name</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="120">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="55" y="545" width="186" height="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>1. Data Preparation</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>1. Data Preparation</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="122">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="80" y="594" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="12" />
+              <Fields>
+                <Field name="URL" />
+                <Field name="User-Agent" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=1000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=1500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=2000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=2500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=3000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=3500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=4000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=4500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=5000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusServices?$skip=5500</c>
+                  <c>Mozilla</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="166">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="80" y="654" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Extract All the Buses: 6k</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="99">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="319" y="1217" width="546" height="230" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>2. API Calls</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>2. API Calls</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="100">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="344" y="1314" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>URL</URLField>
+              <OutputMode>String</OutputMode>
+              <CodePage>65001</CodePage>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues>
+                  <Item name="AccountKey" value="mfUGSSHrRwewXK6XHXwG/w==" />
+                </NameValues>
+                <Fields orderChanged="False">
+                  <Field name="URL" />
+                  <Field name="User-Agent" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>GET</HTTPAction>
+                <QueryStringBodyMode>Compose</QueryStringBodyMode>
+                <ComposeNameValues />
+                <ComposeFields orderChanged="False">
+                  <Field name="URL" selected="False" />
+                  <Field name="User-Agent" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </ComposeFields>
+              </Payload>
+              <numConnections>1</numConnections>
+              <Timeout>600</Timeout>
+              <EnableRPM value="False" />
+              <DcmAdvancedAuth value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+        <Node ToolID="101">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+            <Position x="452" y="1314" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <JSON_Field>DownloadData</JSON_Field>
+              <IncludeInOutput value="False" />
+              <SingleField value="False" />
+              <Mode>SingleField</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+        </Node>
+        <Node ToolID="102">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="548" y="1314" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="User-Agent" selected="False" />
+                <SelectField field="DownloadHeaders" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="103">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="656" y="1314" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>JSON_Name</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>
+              </RootName>
+              <Delimeters value="." />
+              <NumFields value="3" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="104">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="764" y="1314" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="JSON_Name" selected="False" />
+                <SelectField field="1" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="186">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="380" y="1374" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Download API</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="189">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="512" y="1266" width="119" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text><![CDATA[Unselect User Agent, Download Headers
+]]></Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="190">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="620" y="1374" width="144" height="48" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Convert JSON_Name into Columns by Delimiter .</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="191">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="740" y="1266" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Unselect JSON_Name</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="95">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="55" y="1265" width="186" height="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>1. Data Preparation</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>1. Data Preparation</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="98">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="80" y="1314" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="41" />
+              <Fields>
+                <Field name="URL" />
+                <Field name="User-Agent" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=1000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=1500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=2000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=2500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=3000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=3500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=4000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=4500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=5000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=5500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=6000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=6500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=7000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=7500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=8000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=8500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=9000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=9500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=10000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=10500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=11000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=11500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=12000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=12500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=13000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=13500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=14000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=14500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=15000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=15500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=16000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=16500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=17000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=17500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=18000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=18500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=19000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=19500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=20000</c>
+                  <c>Mozilla</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="188">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="92" y="1374" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Extract All the Bus Stops: 25k</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1050" y="857" width="746" height="288" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>3. Data Display</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>3. Data Display</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="77">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="1207" y="954" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields>
+                <Field field="URL" />
+                <Field field="2" />
+              </GroupFields>
+              <HeaderField field="3" />
+              <DataField field="JSON_ValueString" />
+              <Methods>
+                <Method method="Concat" />
+                <Separator>,</Separator>
+                <FieldSize value="2048" />
+              </Methods>
+              <RetainSpecChars value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="URL" size="2147483647" source="CrossTab:Group:Concat:" type="V_String" />
+                <Field description="TextToColumns: Parsed from JSON_Name" name="2" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="BusStopCode" size="2048" source="CrossTab:Header:3:BusStopCode:Concat:" type="V_WString" />
+                <Field name="Direction" size="2048" source="CrossTab:Header:3:Direction:Concat:" type="V_WString" />
+                <Field name="Distance" size="2048" source="CrossTab:Header:3:Distance:Concat:" type="V_WString" />
+                <Field name="Operator" size="2048" source="CrossTab:Header:3:Operator:Concat:" type="V_WString" />
+                <Field name="SAT_FirstBus" size="2048" source="CrossTab:Header:3:SAT_FirstBus:Concat:" type="V_WString" />
+                <Field name="SAT_LastBus" size="2048" source="CrossTab:Header:3:SAT_LastBus:Concat:" type="V_WString" />
+                <Field name="ServiceNo" size="2048" source="CrossTab:Header:3:ServiceNo:Concat:" type="V_WString" />
+                <Field name="StopSequence" size="2048" source="CrossTab:Header:3:StopSequence:Concat:" type="V_WString" />
+                <Field name="SUN_FirstBus" size="2048" source="CrossTab:Header:3:SUN_FirstBus:Concat:" type="V_WString" />
+                <Field name="SUN_LastBus" size="2048" source="CrossTab:Header:3:SUN_LastBus:Concat:" type="V_WString" />
+                <Field name="WD_FirstBus" size="2048" source="CrossTab:Header:3:WD_FirstBus:Concat:" type="V_WString" />
+                <Field name="WD_LastBus" size="2048" source="CrossTab:Header:3:WD_LastBus:Concat:" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="91">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1327" y="954" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="2" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>2 - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="92">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1435" y="954" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="2" selected="False" />
+                <SelectField field="ServiceNo" selected="True" />
+                <SelectField field="BusStopCode" selected="True" />
+                <SelectField field="Direction" selected="True" />
+                <SelectField field="Distance" selected="True" />
+                <SelectField field="Operator" selected="True" />
+                <SelectField field="SAT_FirstBus" selected="True" />
+                <SelectField field="SAT_LastBus" selected="True" />
+                <SelectField field="StopSequence" selected="True" />
+                <SelectField field="SUN_FirstBus" selected="True" />
+                <SelectField field="SUN_LastBus" selected="True" />
+                <SelectField field="WD_FirstBus" selected="True" />
+                <SelectField field="WD_LastBus" selected="True" />
+                <SelectField field="URL" selected="False" />
+                <SelectField field="_Null_" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="156">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1543" y="954" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression><![CDATA[[ServiceNo] = "184" OR
+[ServiceNo] = "154" OR
+[ServiceNo] = "52" OR
+[ServiceNo] = "74" OR
+[ServiceNo] = "75" OR
+[ServiceNo] = "151" OR
+[ServiceNo] = "154B" OR
+[ServiceNo] = "61"
+]]></Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[ServiceNo] = "184" OR
+[ServiceNo] = "154" OR
+[ServiceNo] = "52" OR
+[ServiceNo] ...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="157">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1675" y="942" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="ServiceNo" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>ServiceNo - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="180">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1183" y="1026" width="120" height="52" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Group by Index &amp; URL 
+Showcase by Feature</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="181">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1315" y="1038" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Re sort by Index Ascending</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="182">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1423" y="1014" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Unselect URL, Index</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="183">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1507" y="906" width="120" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Filter out buses at Ngee Ann Polytechnic</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="184">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1663" y="1050" width="108" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Re sort by Bus Number ascending</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="233">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1075" y="966" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>NotContains</Operator>
+                <Field>2</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2025-02-01 21:20:07</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>metadata</Operand>
+                  <StartDate>2025-02-01 21:20:07</StartDate>
+                  <EndDate>2025-02-01 21:20:07</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!Contains([2],"metadata")</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="378" y="869" width="558" height="230" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>API Calls</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>API Calls</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="59">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="403" y="966" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>URL</URLField>
+              <OutputMode>String</OutputMode>
+              <CodePage>65001</CodePage>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues>
+                  <Item name="AccountKey" value="mfUGSSHrRwewXK6XHXwG/w==" />
+                </NameValues>
+                <Fields orderChanged="False">
+                  <Field name="URL" />
+                  <Field name="User-Agent" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>GET</HTTPAction>
+                <QueryStringBodyMode>Compose</QueryStringBodyMode>
+                <ComposeNameValues />
+                <ComposeFields orderChanged="False">
+                  <Field name="URL" selected="False" />
+                  <Field name="User-Agent" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </ComposeFields>
+              </Payload>
+              <numConnections>1</numConnections>
+              <Timeout>600</Timeout>
+              <EnableRPM value="False" />
+              <DcmAdvancedAuth value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+        <Node ToolID="60">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+            <Position x="499" y="966" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <JSON_Field>DownloadData</JSON_Field>
+              <IncludeInOutput value="False" />
+              <SingleField value="False" />
+              <Mode>SingleField</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+        </Node>
+        <Node ToolID="62">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="607" y="966" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="User-Agent" selected="False" />
+                <SelectField field="DownloadHeaders" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="63">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="571" y="918" width="119" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text><![CDATA[Unselect User Agent, Download Headers
+]]></Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="64">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="727" y="966" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>JSON_Name</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>
+              </RootName>
+              <Delimeters value="." />
+              <NumFields value="3" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="66">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="691" y="1026" width="144" height="48" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Convert JSON_Name into Columns by Delimiter .</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="65">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="847" y="966" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="JSON_Name" selected="False" />
+                <SelectField field="1" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="70">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="811" y="918" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Unselect JSON_Name</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="185">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="427" y="1026" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Download API</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="55" y="901" width="186" height="202" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption><![CDATA[1. Data Preparation
+]]></Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[1. Data Preparation
+]]></AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="50">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="80" y="966" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="41" />
+              <Fields>
+                <Field name="URL" />
+                <Field name="User-Agent" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=1000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=1500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=2000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=2500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=3000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=3500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=4000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=4500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=5000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=5500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=6000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=6500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=7000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=7500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=8000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=8500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=9000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=9500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=10000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=10500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=11000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=11500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=12000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=12500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=13000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=13500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=14000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=14500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=15000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=15500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=16000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=16500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=17000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=17500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=18000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=18500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=19000</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=19500</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip=20000</c>
+                  <c>Mozilla</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="187">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="92" y="1038" width="96" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Extract All the Bus Routes: 25k</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="131">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="990" y="473" width="1109" height="313" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>3. Data Display</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>3. Data Display</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="143">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1387" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="2" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>2 - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="148">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1495" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ServiceNo" selected="True" />
+                <SelectField field="Operator" selected="False" />
+                <SelectField field="URL" selected="False" />
+                <SelectField field="2" selected="False" />
+                <SelectField field="_Null_" selected="False" />
+                <SelectField field="Category" selected="False" />
+                <SelectField field="DestinationCode" selected="True" />
+                <SelectField field="Direction" selected="True" />
+                <SelectField field="LoopDesc" selected="True" />
+                <SelectField field="OriginCode" selected="True" />
+                <SelectField field="AM_Offpeak_Freq" selected="True" />
+                <SelectField field="AM_Peak_Freq" selected="True" />
+                <SelectField field="PM_Offpeak_Freq" selected="True" />
+                <SelectField field="PM_Peak_Freq" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="141">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="1243" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields>
+                <Field field="URL" />
+                <Field field="2" />
+              </GroupFields>
+              <HeaderField field="3" />
+              <DataField field="JSON_ValueString" />
+              <Methods>
+                <Method method="Concat" />
+                <Separator>,</Separator>
+                <FieldSize value="2048" />
+              </Methods>
+              <RetainSpecChars value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="URL" size="2147483647" source="CrossTab:Group:Concat:" type="V_String" />
+                <Field description="TextToColumns: Parsed from JSON_Name" name="2" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="AM_Offpeak_Freq" size="2048" source="CrossTab:Header:3:AM_Offpeak_Freq:Concat:" type="V_WString" />
+                <Field name="AM_Peak_Freq" size="2048" source="CrossTab:Header:3:AM_Peak_Freq:Concat:" type="V_WString" />
+                <Field name="Category" size="2048" source="CrossTab:Header:3:Category:Concat:" type="V_WString" />
+                <Field name="DestinationCode" size="2048" source="CrossTab:Header:3:DestinationCode:Concat:" type="V_WString" />
+                <Field name="Direction" size="2048" source="CrossTab:Header:3:Direction:Concat:" type="V_WString" />
+                <Field name="LoopDesc" size="2048" source="CrossTab:Header:3:LoopDesc:Concat:" type="V_WString" />
+                <Field name="Operator" size="2048" source="CrossTab:Header:3:Operator:Concat:" type="V_WString" />
+                <Field name="OriginCode" size="2048" source="CrossTab:Header:3:OriginCode:Concat:" type="V_WString" />
+                <Field name="PM_Offpeak_Freq" size="2048" source="CrossTab:Header:3:PM_Offpeak_Freq:Concat:" type="V_WString" />
+                <Field name="PM_Peak_Freq" size="2048" source="CrossTab:Header:3:PM_Peak_Freq:Concat:" type="V_WString" />
+                <Field name="ServiceNo" size="2048" source="CrossTab:Header:3:ServiceNo:Concat:" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="152">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1135" y="581" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="1" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="154">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1639" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression><![CDATA[[ServiceNo] = "184" OR
+[ServiceNo] = "154" OR
+[ServiceNo] = "52" OR
+[ServiceNo] = "74" OR
+[ServiceNo] = "75" OR
+[ServiceNo] = "151" OR
+[ServiceNo] = "154B" OR
+[ServiceNo] = "61"
+]]></Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[ServiceNo] = "184" OR
+[ServiceNo] = "154" OR
+[ServiceNo] = "52" OR
+[ServiceNo] ...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="155">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1759" y="570" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="ServiceNo" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>ServiceNo - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="173">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1219" y="642" width="120" height="52" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Group by Index &amp; URL 
+Showcase by Feature</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="174">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1375" y="666" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Re sort by Index Ascending</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="177">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1615" y="534" width="100" height="52" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Filter buses at Ngee Ann Polytechnic</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="176">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1471" y="522" width="120" height="64" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Unselect Operator, URL, Index, Category
+
+Rearrange column sequence</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="178">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1747" y="666" width="108" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Re sort by Bus Number ascending</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="217">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1987" y="570" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="25">C:\Users\leong\OneDrive\Documents\Ngee Ann Poly\Sem 2.2\DDP\ass 2\Bus Services Route 2.xlsx|||Sheet1</File>
+              <Passwords />
+              <Disable>False</Disable>
+              <FormatSpecificOptions>
+                <PreserveFormat>False</PreserveFormat>
+                <UNCLocal>False</UNCLocal>
+                <SkipFieldNames>False</SkipFieldNames>
+                <SuppressBlankFile>False</SuppressBlankFile>
+                <OutputOption>Overwrite</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Bus Services Route 2.xlsx
+Query=Sheet1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="225">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1975" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\leong\AppData\Local\Temp\Alteryx\Engine_15140_c9ca170c00df48c7a09f37ea1aa6d2bd_\Engine_15140_4ae5adcf69e74a8882d91b52e51f8d78~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="232">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1015" y="594" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>NotContains</Operator>
+                <Field>2</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2025-02-01 21:19:41</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <StartDate>2025-02-01 21:19:41</StartDate>
+                  <EndDate>2025-02-01 21:19:41</EndDate>
+                  <Operand>metadata</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!Contains([2],"metadata")</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="113" width="458" height="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>1. Data Preparation</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>1. Data Preparation</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="115" y="209" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="11" />
+              <Fields>
+                <Field name="URL" />
+                <Field name="BusStopCode" />
+                <Field name="User-Agent" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c>12101</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c>12109</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c>19039</c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c><![CDATA[19031
+]]></c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c><![CDATA[17171
+]]></c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c><![CDATA[17179
+]]></c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c><![CDATA[42059
+]]></c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c><![CDATA[42051
+]]></c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c><![CDATA[42091
+]]></c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c><![CDATA[42109
+]]></c>
+                  <c>Mozilla</c>
+                </r>
+                <r>
+                  <c>https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=</c>
+                  <c>43009</c>
+                  <c>Mozilla</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="79" y="270" width="143" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text><![CDATA[Bus Stop @ NP & Nearby MRT Bus Stop
+]]></Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="223" y="210" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="BusStopCode" selected="True" type="V_String" size="2147483647" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="319" y="210" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="[URL]+[BusStopCode]" field="URL" size="2147483647" type="V_String" enabled="true" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[URL = [URL]+[BusStopCode]
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="415" y="210" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="BusStopCode" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="211" y="162" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>BusStop Code Int32 -&gt; VString</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="391" y="162" width="96" height="48" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Unselect Bus Stop Code</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1098" y="101" width="1390" height="289" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>3. Data Display</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>3. Data Display</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="41">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="1254" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>3</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>
+              </RootName>
+              <Delimeters value="." />
+              <NumFields value="2" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="44">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1362" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="3" selected="False" />
+                <SelectField field="1" selected="False" />
+                <SelectField field="1_2" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="45">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="1471" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields>
+                <Field field="URL" />
+                <Field field="2" />
+              </GroupFields>
+              <HeaderField field="2_2" />
+              <DataField field="JSON_ValueString" />
+              <Methods>
+                <Method method="Concat" />
+                <Separator>,</Separator>
+                <FieldSize value="2048" />
+              </Methods>
+              <RetainSpecChars value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="URL" size="2147483647" source="CrossTab:Group:Concat:" type="V_String" />
+                <Field description="TextToColumns: Parsed from JSON_Name" name="2" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="_Null_" size="2048" source="CrossTab:Header:2_2:[Null]:Concat:" type="V_WString" />
+                <Field name="DestinationCode" size="2048" source="CrossTab:Header:2_2:DestinationCode:Concat:" type="V_WString" />
+                <Field name="EstimatedArrival" size="2048" source="CrossTab:Header:2_2:EstimatedArrival:Concat:" type="V_WString" />
+                <Field name="Feature" size="2048" source="CrossTab:Header:2_2:Feature:Concat:" type="V_WString" />
+                <Field name="Latitude" size="2048" source="CrossTab:Header:2_2:Latitude:Concat:" type="V_WString" />
+                <Field name="Load" size="2048" source="CrossTab:Header:2_2:Load:Concat:" type="V_WString" />
+                <Field name="Longitude" size="2048" source="CrossTab:Header:2_2:Longitude:Concat:" type="V_WString" />
+                <Field name="Monitored" size="2048" source="CrossTab:Header:2_2:Monitored:Concat:" type="V_WString" />
+                <Field name="OriginCode" size="2048" source="CrossTab:Header:2_2:OriginCode:Concat:" type="V_WString" />
+                <Field name="Type" size="2048" source="CrossTab:Header:2_2:Type:Concat:" type="V_WString" />
+                <Field name="VisitNumber" size="2048" source="CrossTab:Header:2_2:VisitNumber:Concat:" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="46">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1578" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="2" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>2 - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="47">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="1783" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Warn</ErrorWarn>
+              <KeyFields>
+                <Field field="_Null_" />
+              </KeyFields>
+              <DataFields>
+                <Field field="_Null_" selected="False" />
+                <Field field="DestinationCode" selected="True" />
+                <Field field="EstimatedArrival" selected="True" />
+                <Field field="Feature" selected="True" />
+                <Field field="Latitude" selected="True" />
+                <Field field="Load" selected="True" />
+                <Field field="Longitude" selected="True" />
+                <Field field="Monitored" selected="True" />
+                <Field field="OriginCode" selected="True" />
+                <Field field="Type" selected="True" />
+                <Field field="VisitNumber" selected="True" />
+                <Field field="*Unknown" selected="False" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="80">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1975" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="_Null_" selected="True" rename="Bus Number, Operation Company" />
+                <SelectField field="Name" selected="True" rename="Title" />
+                <SelectField field="Value" selected="False" />
+                <SelectField field="Value1" selected="True" />
+                <SelectField field="Value2" selected="True" />
+                <SelectField field="Value3" selected="True" />
+                <SelectField field="Bus Arrival1" selected="True" />
+                <SelectField field="Bus Arrival2" selected="True" />
+                <SelectField field="Bus Arrival3" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="158">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1243" y="150" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text><![CDATA[Split 3 by Delimiter . ]]></Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="159">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1435" y="257" width="132" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Group by Index &amp; URL 
+Showcase by Feature</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="161">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1555" y="161" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Re sort to Index ascending order</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="162">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1759" y="258" width="108" height="52" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Combine each feature into one row &amp; column</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="163">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1855" y="162" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Split Feature into 3 Bus Arrival</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="164">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1927" y="258" width="100" height="36" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Rearrange column sequence</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="216">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2371" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="25">C:\Users\leong\OneDrive\Documents\Ngee Ann Poly\Sem 2.2\DDP\ass 2\Bus Arrival.xlsx|||Sheet1</File>
+              <Passwords />
+              <Disable>False</Disable>
+              <FormatSpecificOptions>
+                <PreserveFormat>False</PreserveFormat>
+                <UNCLocal>False</UNCLocal>
+                <SkipFieldNames>False</SkipFieldNames>
+                <SuppressBlankFile>False</SuppressBlankFile>
+                <OutputOption>Overwrite</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Bus Arrival.xlsx
+Query=Sheet1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="222">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2071" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [Bus Arrival1] = &quot;WAB&quot; THEN &quot;Wheelchair Accessible&quot; ELSE [Bus Arrival1] ENDIF&#xA;" field="Bus Arrival1" size="2048" type="V_WString" enabled="true" />
+                <FormulaField expression="IF [Bus Arrival2] = &quot;WAB&quot; THEN &quot;Wheelchair Accessible&quot; ELSE [Bus Arrival2] ENDIF" field="Bus Arrival2" size="2048" type="V_WString" enabled="true" />
+                <FormulaField expression="IF [Bus Arrival3] = &quot;WAB&quot; THEN &quot;Wheelchair Accessible&quot; ELSE [Bus Arrival3] ENDIF" field="Bus Arrival3" size="2048" type="V_WString" enabled="true" />
+                <FormulaField expression="IF [Bus Arrival1]= &quot;SEA&quot; THEN &quot;Seats Available&quot;&#xA;ELSEIF [Bus Arrival1] = &quot;SDA&quot; THEN &quot;Standing Available&quot;&#xA;ELSEIF [Bus Arrival1] = &quot;LSD&quot; THEN &quot;Limited Standing&quot;&#xA;ELSE [Bus Arrival1] ENDIF" field="Bus Arrival1" size="2048" type="V_WString" enabled="true" />
+                <FormulaField expression="IF [Bus Arrival2]= &quot;SEA&quot; THEN &quot;Seats Available&quot;&#xA;ELSEIF [Bus Arrival2] = &quot;SDA&quot; THEN &quot;Standing Available&quot;&#xA;ELSEIF [Bus Arrival2] = &quot;LSD&quot; THEN &quot;Limited Standing&quot;&#xA;ELSE [Bus Arrival2] ENDIF" field="Bus Arrival2" size="2048" type="V_WString" enabled="true" />
+                <FormulaField expression="IF [Bus Arrival3]= &quot;SEA&quot; THEN &quot;Seats Available&quot;&#xA;ELSEIF [Bus Arrival3] = &quot;SDA&quot; THEN &quot;Standing Available&quot;&#xA;ELSEIF [Bus Arrival3] = &quot;LSD&quot; THEN &quot;Limited Standing&quot;&#xA;ELSE [Bus Arrival3] ENDIF" field="Bus Arrival3" size="2048" type="V_WString" enabled="true" />
+                <FormulaField expression="IF [Bus Arrival1] = &quot;SD&quot; THEN &quot;Single Deck&quot;&#xA;ELSEIF [Bus Arrival1] = &quot;DD&quot; THEN &quot;Double Deck&quot;&#xA;ELSEIF [Bus Arrival1] = &quot;BD&quot; THEN &quot;Bendy Bus&quot;&#xA;ELSE [Bus Arrival1] ENDIF" field="Bus Arrival1" size="2048" type="V_WString" enabled="true" />
+                <FormulaField expression="IF [Bus Arrival2] = &quot;SD&quot; THEN &quot;Single Deck&quot;&#xA;ELSEIF [Bus Arrival2] = &quot;DD&quot; THEN &quot;Double Deck&quot;&#xA;ELSEIF [Bus Arrival2] = &quot;BD&quot; THEN &quot;Bendy Bus&quot;&#xA;ELSE [Bus Arrival2] ENDIF" field="Bus Arrival2" size="2048" type="V_WString" enabled="true" />
+                <FormulaField expression="IF [Bus Arrival3] = &quot;SD&quot; THEN &quot;Single Deck&quot;&#xA;ELSEIF [Bus Arrival3] = &quot;DD&quot; THEN &quot;Double Deck&quot;&#xA;ELSEIF [Bus Arrival3] = &quot;BD&quot; THEN &quot;Bendy Bus&quot;&#xA;ELSE [Bus Arrival3] ENDIF" field="Bus Arrival3" size="2048" type="V_WString" enabled="true" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Bus Arrival1 = IF [Bus Arrival1] = "WAB" THEN "Wheelchair Accessible" ELSE [Bus ...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="223">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="2371" y="306" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\leong\AppData\Local\Temp\Alteryx\Engine_15140_c9ca170c00df48c7a09f37ea1aa6d2bd_\Engine_15140_cdcf54d9df80465dacc4a2017c0cc237~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="228">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="2167" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Bus Number, Operation Company</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>
+              </RootName>
+              <Delimeters value="," />
+              <NumFields value="2" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="229">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2263" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Bus Number, Operation Company" selected="False" />
+                <SelectField field="1" selected="True" rename="ServiceNo" />
+                <SelectField field="Title" selected="True" />
+                <SelectField field="Bus Arrival1" selected="True" />
+                <SelectField field="Bus Arrival2" selected="True" />
+                <SelectField field="Bus Arrival3" selected="True" />
+                <SelectField field="2" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="231">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1687" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="URL" selected="False" />
+                <SelectField field="2" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="207">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1123" y="210" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression><![CDATA[!Contains([2],"metadata") AND
+!IsNull([2])
+
+]]></Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[!Contains([2],"metadata") AND
+!IsNull([2])
+
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="153">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="1879" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Value</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>Bus Arrival</RootName>
+              <Delimeters value="," />
+              <NumFields value="3" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="570" y="113" width="456" height="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>2. API Calls</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>2. API Calls</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="595" y="209" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>URL</URLField>
+              <OutputMode>String</OutputMode>
+              <CodePage>65001</CodePage>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues>
+                  <Item name="AccountKey" value="mfUGSSHrRwewXK6XHXwG/w==" />
+                </NameValues>
+                <Fields orderChanged="False">
+                  <Field name="URL" />
+                  <Field name="User-Agent" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>GET</HTTPAction>
+                <QueryStringBodyMode>Compose</QueryStringBodyMode>
+                <ComposeNameValues />
+                <ComposeFields orderChanged="False">
+                  <Field name="URL" selected="False" />
+                  <Field name="User-Agent" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </ComposeFields>
+              </Payload>
+              <numConnections>1</numConnections>
+              <Timeout>600</Timeout>
+              <EnableRPM value="False" />
+              <DcmAdvancedAuth value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="787" y="210" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>JSON_Name</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>
+              </RootName>
+              <Delimeters value="." />
+              <NumFields value="3" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="907" y="210" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="User-Agent" selected="False" />
+                <SelectField field="DownloadHeaders" selected="False" />
+                <SelectField field="JSON_Name" selected="False" />
+                <SelectField field="1" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="22">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="619" y="270" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Download API</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="23">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="751" y="162" width="120" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Convert JSON_Name into rows</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="883" y="270" width="118" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Unselect Download Headers, User-Agent</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="1" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="38">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+            <Position x="691" y="210" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <JSON_Field>DownloadData</JSON_Field>
+              <IncludeInOutput value="False" />
+              <SingleField value="False" />
+              <Mode>SingleField</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="144" Connection="Output" />
+      <Destination ToolID="145" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="145" Connection="Output" />
+      <Destination ToolID="146" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="146" Connection="Output" />
+      <Destination ToolID="195" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="157" Connection="Output" />
+      <Destination ToolID="195" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="234" Connection="True" />
+      <Destination ToolID="144" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="195" Connection="Join" />
+      <Destination ToolID="205" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="204" Connection="Output" />
+      <Destination ToolID="219" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="204" Connection="Output" />
+      <Destination ToolID="227" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="205" Connection="Output" />
+      <Destination ToolID="204" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="124" Connection="Output" />
+      <Destination ToolID="125" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="125" Connection="Output" />
+      <Destination ToolID="126" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="126" Connection="Output" />
+      <Destination ToolID="127" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="127" Connection="Output" />
+      <Destination ToolID="130" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="130" Connection="Output" />
+      <Destination ToolID="232" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="122" Connection="Output" />
+      <Destination ToolID="124" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="100" Connection="Output" />
+      <Destination ToolID="101" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="101" Connection="Output" />
+      <Destination ToolID="102" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="102" Connection="Output" />
+      <Destination ToolID="103" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="103" Connection="Output" />
+      <Destination ToolID="104" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="104" Connection="Output" />
+      <Destination ToolID="234" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="98" Connection="Output" />
+      <Destination ToolID="100" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="77" Connection="Output" />
+      <Destination ToolID="91" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="91" Connection="Output" />
+      <Destination ToolID="92" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="92" Connection="Output" />
+      <Destination ToolID="156" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="156" Connection="True" />
+      <Destination ToolID="157" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="233" Connection="True" />
+      <Destination ToolID="77" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="65" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="65" Connection="Output" />
+      <Destination ToolID="233" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="143" Connection="Output" />
+      <Destination ToolID="148" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="148" Connection="Output" />
+      <Destination ToolID="154" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="141" Connection="Output" />
+      <Destination ToolID="143" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="152" Connection="Output" />
+      <Destination ToolID="141" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="154" Connection="True" />
+      <Destination ToolID="155" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="155" Connection="Output" />
+      <Destination ToolID="225" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="155" Connection="Output" />
+      <Destination ToolID="217" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="232" Connection="True" />
+      <Destination ToolID="152" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="231" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="153" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="80" Connection="Output" />
+      <Destination ToolID="222" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="222" Connection="Output" />
+      <Destination ToolID="228" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="228" Connection="Output" />
+      <Destination ToolID="229" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="229" Connection="Output" />
+      <Destination ToolID="216" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="229" Connection="Output" />
+      <Destination ToolID="223" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="231" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="207" Connection="True" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="153" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="207" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>s10241629_Marissa Leong_DDP_ASG2</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="5ccb4354-c292-4a4f-84eb-5ee0017e18df" />
+      <Telemetry>
+        <PreviousWorkflowId value="cb78db52-df20-44c4-8c67-b0242e4a6866" />
+        <OriginWorkflowId value="cb78db52-df20-44c4-8c67-b0242e4a6866" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
